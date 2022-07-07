@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 
-export default function Card({ props }) {
+export default function WeatherCard({ props }) {
 
   // set props to variables
   const clouds = props ? props.weather[0].description : null;

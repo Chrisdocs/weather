@@ -1,4 +1,4 @@
-export async function getServerSideProp(context){
+export async function getServerSidePropW(context){
 	const city = context;
 	const API_KEY = process.env.API_KEY;
 
