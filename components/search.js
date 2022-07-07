@@ -10,16 +10,7 @@ export default function Search() {
   const [data, setData] = useState(null);
   const [city, setCity] = useState("");
 
-  useEffect(() => {
-    getServerSideProp(city).then((res) => {
-      if (!city) {
-        setData(null);
-      } else {
-        setData(res.data);
-      }
-    });
-  }, []);
-
+	// sets the API data state on function call
   function getWeather() {
     getServerSideProp(city).then((res) => {
       if (!city) {
@@ -30,41 +21,16 @@ export default function Search() {
     });
   }
 
+	// allows use of enter key for submitting their query, calls getWeather()
 	const onSearchSubmit = (e) => {
 		e.preventDefault();
 		getWeather();
 	}
 
-  // create a function which passes data onto a child component
+  // passes data onto a child component
   function getData() {
     return data;
   }
-
-  // const clouds = props ? props.weather[0].description : null;
-  // console.log("clouds: ", clouds);
-  // const wind = props ? props.wind.speed : null;
-  // console.log("wind: ", wind);
-  // const windSpeed = props ? props.wind.deg : null;
-  // console.log("wind speed: ", windSpeed);
-  // const windDirection = props ? props.wind.deg : null;
-  // console.log("wind direction: ", windDirection);
-  // const temp = props ? props.main.temp : null;
-  // console.log("temp: ", temp);
-  // const feelsLike = props ? props.main.feels_like : null;
-  // console.log("feels like: ", feelsLike);
-  // const sunrise = props ? props.sys.sunrise : null;
-  // console.log("sunrise: ", sunrise);
-  // const tempLow = props ? props.main.temp_min : null;
-  // const tempHigh = props ? props.main.temp_max : null;
-  // console.log("low temp: ", tempLow, "high temp: ", tempHigh);
-  // const sunset = props ? props.sys.sunset : null;
-  // console.log("sunset: ", sunset);
-  // const humidity = props ? props.main.humidity : null;
-  // console.log("humidity: ", humidity);
-  // const pressure = props ? props.main.pressure : null;
-  // console.log("pressure: ", pressure);
-
-  // console.log("current city: ", city);
 
   return (
     <div>
