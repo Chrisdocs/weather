@@ -1,10 +1,13 @@
-import Head from 'next/head'
-import React from 'react'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
-import WeatherApi from './api/weatherAPI'
+import Head from "next/head";
+import React from "react";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import styles from "../styles/Home.module.scss";
+import { getServerSideProp } from "./api/weatherAPI";
+import Search from "../components/search";
 
 export default function Home() {
+
   return (
     <div className={styles.container}>
       <Head>
@@ -14,14 +17,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <input type="text" placeholder="Enter city name"></input>
-				<button>Search</button>
-				<WeatherApi />
+				<Search />
       </main>
 
-      <footer className={styles.footer}>
-
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
-  )
+  );
 }
