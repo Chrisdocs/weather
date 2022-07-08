@@ -27,6 +27,10 @@ export default function ForecastCard({ props }) {
     }
   }, [arr]);
 
+	const day = arr[0].dt;
+	console.log(day);
+
+
 	if (isData === true) {
 		return (
       <div>
