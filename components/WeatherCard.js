@@ -23,7 +23,7 @@ export default function WeatherCard({ props }) {
   const timezone = props ? props.timezone : null;
 
   return (
-    <div>
+    <div className={styles.weatherContainer}>
       {props === null ? (
         <div>please enter a valid city</div>
       ) : (
