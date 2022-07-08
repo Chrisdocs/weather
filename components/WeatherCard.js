@@ -44,12 +44,14 @@ export default function WeatherCard({ props }) {
 							width={100}
 							height={100}
 							/>
-              <div className={styles.description}>
-                <p>{clouds}</p>
-              </div>
-              <div className={styles.city}>
-                <p>{city}</p>
-              </div>
+							<span className={styles.leftSpan}>
+								<div className={styles.description}>
+									<p>{clouds}</p>
+								</div>
+								<div className={styles.city}>
+									<p>{city}</p>
+								</div>
+							</span>
             </div>
             <div className={styles.cardRight}>
               <div className={styles.temp}>

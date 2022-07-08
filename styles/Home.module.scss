@@ -52,18 +52,23 @@
 		.cardBody{
 			display: flex;
 			justify-content: space-between;
-		
 			.cardLeft{
 				justify-content: flex-start;
-				.description{
+				.leftSpan{
+					display: inline-block;
+					vertical-align: top;
+					margin-top: 5%;
+					.description{
 
-				}
-				.city{
-
+					}
+					.city{
+	
+					}
 				}
 			}
 			.cardRight{
 				justify-content: flex-end;
+				margin-top: 2%;
 				.temp{
 
 				}
