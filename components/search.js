@@ -63,20 +63,20 @@ export default function Search() {
 	}
 
   return (
-    <div>
-      <div>
-        <div>
+    <div className={styles.searchContainer}>
+        <div className={styles.titleDiv}>
           <h2>Weather App</h2>
         </div>
-      </div>
-      <div>
-				<form onSubmit={onSearchSubmit}>
+      <div className={styles.formContainer}>
+				<form onSubmit={onSearchSubmit} className={styles.form}>
 						<input
 							type="text"
 							placeholder="Enter a City"
+							className={styles.input}
 							onChange={(e) => setCity(e.target.value)}
 						/>
-						<button type="submit">
+						<br></br>
+						<button type="submit" className={styles.submitBtn}>
 							Search
 						</button>
 				</form>

@@ -25,7 +25,9 @@ export default function WeatherCard({ props }) {
   return (
     <div className={styles.weatherContainer}>
       {props === null ? (
-        <div>please enter a valid city</div>
+        <div>
+					<p className={styles.missingCity}>please enter a valid city</p>
+					</div>
       ) : (
         <div className={styles.card}>
           <div className={styles.cardHeader}>

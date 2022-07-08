@@ -1,6 +1,47 @@
-/* weather card component */
+@import 'mixins';
+
+/* Search component */
+
+.searchContainer{
+	.titleDiv{
+		text-align: center;
+	}
+	.formContainer{
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		.form{
+			.input{
+				border-radius: 5px;
+				border: 1px solid #ccc;
+				text-align: center;
+				&:focus{
+					outline: none !important;
+					border: 1px solid $colorTertiary;
+					box-shadow: 0 0 5px $colorTertiary
+				}
+			}
+			.submitBtn{
+				border-style: none;
+				padding: 4px;
+				margin-top: 1vh;
+				background-color: $btnPrimary;
+				margin-left: 30%;
+					&:hover{
+						cursor: pointer;
+						background-color: $btnSecondary;
+					}
+			}
+		}
+	}
+}
+
+/* Weather card component */
 
 .weatherContainer {
+	.missingCity{
+		text-align: center;
+	}
 	.card{
 		.cardHeader{
 
@@ -19,10 +60,12 @@
 
 				}
 				.lowHigh{
-					
+
 				}
 			}
 
 		}
 	}
 }
+
+/* Forecast Card Component */
