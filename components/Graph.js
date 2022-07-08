@@ -13,6 +13,7 @@ export default function Graph({ props }) {
   const [isData, setIsData] = useState(false);
   const [dt, setDt] = useState(null);
 	const [graphDataSet, setGraphDataSet] = useState();
+	const [graphLabels, setGraphLabels] = useState();
 
   useEffect(() => {
     if (props) {
@@ -39,23 +40,30 @@ export default function Graph({ props }) {
 				arr[6].main.temp,
 				arr[7].main.temp,
 				arr[8].main.temp,]);
+				setGraphLabels([
+					moment.unix(arr[0].dt).format("h:mm a"),
+					moment.unix(arr[1].dt).format("h:mm a"),
+					moment.unix(arr[2].dt).format("h:mm a"),
+					moment.unix(arr[3].dt).format("h:mm a"),
+					moment.unix(arr[4].dt).format("h:mm a"),
+					moment.unix(arr[5].dt).format("h:mm a"),
+					moment.unix(arr[6].dt).format("h:mm a"),
+					moment.unix(arr[7].dt).format("h:mm a"),
+					moment.unix(arr[8].dt).format("h:mm a"),
+				]);
     } else if (arr && arr.length === 0) {
       console.log("no data");
       setIsData(false);
     }
   }, [arr]);
 
-  console.log("date time: ", dt);
-	console.log("graph data: ", graphDataSet);
-
   const graphData = {
-    labels: ["12am", "3am", "6am", "9am", "12pm", "3pm", "6pm", "9pm", "12am"],
+    labels: graphLabels,
     datasets: [
       {
         label: "Temperature",
         fill: false,
         data: graphDataSet,
-	
       },
     ],
   };
@@ -95,6 +103,7 @@ export default function Graph({ props }) {
   if (isData === true) {
     return (
       <div className={styles.graphContainer}>
+				<label className={styles.graphLabel}>24 Hour Temperature</label>
         <Line data={graphData} width={400} height={400} options={options} plugins={[ChartDataLabels]}/>
       </div>
     );

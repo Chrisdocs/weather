@@ -83,7 +83,7 @@ export default function Search() {
 				</form>
       </div>
       <WeatherCard props={getWeatherData()} />
-			<ForecastCard props={getForecastData()} />
+			{/* <ForecastCard props={getForecastData()} /> */}
 			<Graph props={getForecastData()} />
     </div>
   );
