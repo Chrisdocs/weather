@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
+import moment from 'moment';
 
 export default function ForecastCard({ props }) {
   const [arr, setArr] = useState([]);
@@ -27,7 +28,7 @@ export default function ForecastCard({ props }) {
     }
   }, [arr]);
 
-	const day = arr[0].dt;
+	const day = moment.unix(arr[0].dt).format('dddd');
 	console.log(day);
 
 
@@ -35,7 +36,7 @@ export default function ForecastCard({ props }) {
 		return (
       <div>
         <div className={styles.day1}>
-          <p>Day 1: </p>
+          <p>{`${day}`}</p>
           <p className={styles.zero}>12:00am: {`${arr[0].main.temp}`}</p>
           <p className={styles.three}>3:00am: {`${arr[1].main.temp}`}</p>
           <p className={styles.six}>6:00am: {`${arr[2].main.temp}`}</p>
