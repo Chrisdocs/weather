@@ -7,6 +7,7 @@ import moment from 'moment';
 export default function ForecastCard({ props }) {
   const [arr, setArr] = useState([]);
 	const [isData, setIsData] = useState(false);
+	const [dt, setDt] = useState(null);
 
   useEffect(() => {
     if (props) {
@@ -22,21 +23,20 @@ export default function ForecastCard({ props }) {
     if (arr && arr.length > 0) {
       console.log('arr is set');
 			setIsData(true);
+			setDt(moment.unix(arr[0].dt).format('dddd'))
     } else if (arr && arr.length === 0) {
       console.log("no data");
 			setIsData(false);
     }
   }, [arr]);
 
-	const day = moment.unix(arr[0].dt).format('dddd');
-	console.log(day);
-
+	console.log(dt);
 
 	if (isData === true) {
 		return (
       <div>
         <div className={styles.day1}>
-          <p>{`${day}`}</p>
+          <p>{`${dt}`}</p>
           <p className={styles.zero}>12:00am: {`${arr[0].main.temp}`}</p>
           <p className={styles.three}>3:00am: {`${arr[1].main.temp}`}</p>
           <p className={styles.six}>6:00am: {`${arr[2].main.temp}`}</p>
