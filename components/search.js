@@ -6,6 +6,7 @@ import { getServerSidePropW } from "../pages/api/WeatherAPI";
 import { getServerSidePropF } from "../pages/api/ForecastAPI";
 import WeatherCard from "./WeatherCard";
 import ForecastCard from "./ForecastCard";
+import Graph from "./Graph";
 
 export default function Search() {
   // get data from API
@@ -83,6 +84,7 @@ export default function Search() {
       </div>
       <WeatherCard props={getWeatherData()} />
 			<ForecastCard props={getForecastData()} />
+			<Graph props={getForecastData()} />
     </div>
   );
 }

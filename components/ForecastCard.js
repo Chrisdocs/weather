@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import moment from 'moment';
+import Graph from "./Graph";
 
 export default function ForecastCard({ props }) {
   const [arr, setArr] = useState([]);
