@@ -39,9 +39,6 @@ export default function Search() {
 		);
 	}
 
-	console.log(latitude, longitude);
-	console.log(forecastData);
-
 	// allows use of enter key for submitting their query, calls getWeather()
 	const onSearchSubmit = async (e) => {
 		e.preventDefault();
