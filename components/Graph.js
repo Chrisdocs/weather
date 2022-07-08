@@ -41,47 +41,70 @@ export default function Graph({ props }) {
 				arr[7].main.temp,
 				arr[8].main.temp,]);
 				setGraphLabels([
-					moment.unix(arr[0].dt).format("h:mm a"),
-					moment.unix(arr[1].dt).format("h:mm a"),
-					moment.unix(arr[2].dt).format("h:mm a"),
-					moment.unix(arr[3].dt).format("h:mm a"),
-					moment.unix(arr[4].dt).format("h:mm a"),
-					moment.unix(arr[5].dt).format("h:mm a"),
-					moment.unix(arr[6].dt).format("h:mm a"),
-					moment.unix(arr[7].dt).format("h:mm a"),
-					moment.unix(arr[8].dt).format("h:mm a"),
+					moment.unix(arr[0].dt).format("h a"),
+					moment.unix(arr[1].dt).format("h a"),
+					moment.unix(arr[2].dt).format("h a"),
+					moment.unix(arr[3].dt).format("h a"),
+					moment.unix(arr[4].dt).format("h a"),
+					moment.unix(arr[5].dt).format("h a"),
+					moment.unix(arr[6].dt).format("h a"),
+					moment.unix(arr[7].dt).format("h a"),
+					moment.unix(arr[8].dt).format("h a"),
 				]);
     } else if (arr && arr.length === 0) {
       console.log("no data");
       setIsData(false);
     }
   }, [arr]);
-
+	
   const graphData = {
-    labels: graphLabels,
+		labels: graphLabels,
     datasets: [
-      {
+			{
         label: "Temperature",
-        fill: false,
+        fill: "origin",
         data: graphDataSet,
       },
     ],
   };
 
 	const options = {
-		responsive: true,
+		layout: {
+			padding: {
+					left: 25,
+					right: 25,
+					top: 25,
+					bottom: 25
+			}
+	},
 		plugins: {
 			legend: {
 				display: false,
 			},
+			datalabels: {
+				anchor: 'end',
+				backgroundColor: 'rgba(46, 196, 182, 1)',
+				borderRadius: 4,
+				padding: 4,
+				align: 'end',
+				font: {
+					weight: "bold",
+				},
+				labels: {
+					value: {
+						color: 'white',
+					}
+				}
+				
+			}
 		},
 		elements: {
 			line: {
 				tension: 0,
 				borderWidth: 2,
-				borderColor: "rgba(55,25,45,0.5)",
+				borderColor: "rgba(203, 243, 240, 1)",
 				fill: "start",
-				backgroundColor: "rgba(23,255,35,0.5)",
+				backgroundColor: "rgba(203, 243, 240, 1)",
 			},
 			point: {
 				radius: 0,
@@ -89,12 +112,9 @@ export default function Graph({ props }) {
 			},
 		},
 		scales: {
-			// xAxes: {
-			// 	display: false,
-			// },
-			// yAxes: {
-			// 	display: false,
-			// },
+			yAxes: {
+				display: false,
+			},
 		},
 	}
 
@@ -103,8 +123,10 @@ export default function Graph({ props }) {
   if (isData === true) {
     return (
       <div className={styles.graphContainer}>
-				<label className={styles.graphLabel}>24 Hour Temperature</label>
-        <Line data={graphData} width={400} height={400} options={options} plugins={[ChartDataLabels]}/>
+				<p className={styles.graphLabel}>24 Hour Temperature</p>
+				<div className={styles.graph}>
+					<Line className={styles.graphLine} data={graphData} width={400} height={400} options={options} plugins={[ChartDataLabels]}/>
+				</div>
       </div>
     );
   } else {

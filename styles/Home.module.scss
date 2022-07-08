@@ -114,3 +114,20 @@
 		}
 	}
 }
+
+/* 24 hour graph */
+
+.graphContainer{
+	.graphLabel{
+		text-align: center;
+	}
+	.graph{
+		width: 100%;
+		height: 100%;
+		background-color: $colorPrimary;
+		border-radius: 15px;
+		.graphLine{
+			padding: 10px;
+		}
+		}
+	}
