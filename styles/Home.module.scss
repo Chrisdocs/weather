@@ -42,12 +42,19 @@
 	.missingCity{
 		text-align: center;
 	}
+	.cardHeader{
+		text-align: center;
+	}
 	.card{
-		.cardHeader{
-
-		}
+		background-color: $colorSecondary;
+		padding: 3%;
+		border-radius: 15px;
 		.cardBody{
+			display: flex;
+			justify-content: space-between;
+		
 			.cardLeft{
+				justify-content: flex-start;
 				.description{
 
 				}
@@ -56,6 +63,7 @@
 				}
 			}
 			.cardRight{
+				justify-content: flex-end;
 				.temp{
 
 				}

@@ -21,6 +21,9 @@ export default function WeatherCard({ props }) {
   const country = props ? props.sys.country : null;
   const city = props ? props.name : null;
   const timezone = props ? props.timezone : null;
+	const icon = props ? props.weather[0].icon : null;
+
+	console.log(icon)
 
   return (
     <div className={styles.weatherContainer}>
@@ -29,13 +32,18 @@ export default function WeatherCard({ props }) {
 					<p className={styles.missingCity}>please enter a valid city</p>
 					</div>
       ) : (
-        <div className={styles.card}>
+				<div>
           <div className={styles.cardHeader}>
-            <h2></h2>
+            <h2>Current</h2>
           </div>
+        <div className={styles.card}>
           <div className={styles.cardBody}>
             <div className={styles.cardLeft}>
-              <p>image</p>
+              <Image
+							src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+							width={100}
+							height={100}
+							/>
               <div className={styles.description}>
                 <p>{clouds}</p>
               </div>
@@ -45,7 +53,7 @@ export default function WeatherCard({ props }) {
             </div>
             <div className={styles.cardRight}>
               <div className={styles.temp}>
-                <p>Currently: {temp}</p>
+                <p>{temp}</p>
               </div>
               <div className={styles.lowHigh}>
                 <p>
@@ -55,6 +63,7 @@ export default function WeatherCard({ props }) {
             </div>
           </div>
         </div>
+				</div>
       )}
     </div>
   );
