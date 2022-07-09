@@ -1,3 +1,6 @@
+// this component will use the 16 day forecast data to display a card for each day of the week if I ever subscribe to that access. $40/m
+
+
 import React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";

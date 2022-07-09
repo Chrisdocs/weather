@@ -85,7 +85,6 @@
 
 .forecastContainer{
 	.dt{
-		text-align: center;
 	}
 	.day{
 		.zero{
@@ -120,6 +119,7 @@
 .graphContainer{
 	.graphLabel{
 		text-align: center;
+		font-family: $fontScourceSansPro;
 	}
 	.graph{
 		width: 100%;
