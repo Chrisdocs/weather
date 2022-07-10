@@ -35,6 +35,7 @@ export default function Search() {
     });
   }
 
+	// get the API data from the weather.gov "points" endpoint using the latitude and longitude data from the open weather api
 	async function getGovApi() {
 		await getServerSidePropG(latitude, longitude).then((res) => {
 			if (!latitude && !longitude) {
@@ -48,6 +49,7 @@ export default function Search() {
 		});
 	};
 
+	// uses the gridX and gridY data from the weather.gov "points" endpoint to get the weather.gov "forecast" endpoint data
 	function getGovForecast() {
 		getServerSidePropGptB(gridX, gridY).then((res) => {
 			if (!gridX && !gridY) {
@@ -58,9 +60,7 @@ export default function Search() {
 		});
 	}
 
-	console.log("gov forecast: ", govWeatherApi);
-
-
+	// uses longitude and latitude data from the open weather api to get the forecast data from the forecast API
 	function getForecast() {
 		getServerSidePropF(latitude, longitude).then((res) => {
 			if (!city) {
