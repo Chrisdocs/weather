@@ -7,6 +7,8 @@ import { getServerSidePropF } from "../pages/api/ForecastAPI";
 import WeatherCard from "./WeatherCard";
 import ForecastCard from "./ForecastCard";
 import Graph from "./Graph";
+import { getServerSidePropG } from "../pages/api/govAPI";
+import { getServerSidePropGptB } from "../pages/api/govAPI";
 
 export default function Search() {
   // get data from API
@@ -15,6 +17,10 @@ export default function Search() {
   const [city, setCity] = useState("");
 	const [latitude, setLatitude] = useState(null);
 	const [longitude, setLongitude] = useState(null);
+	const [govData, setGovData] = useState(null);
+	const [gridX, setGridX] = useState(null);
+	const [gridY, setGridY] = useState(null);
+	const [govWeatherApi, setGovWeatherApi] = useState(null);
 
 	// sets the API data state on function call
   function getWeather() {
@@ -28,6 +34,32 @@ export default function Search() {
       }
     });
   }
+
+	async function getGovApi() {
+		await getServerSidePropG(latitude, longitude).then((res) => {
+			if (!latitude && !longitude) {
+				setGovData(null);
+			} else {
+				setGovData(res.data);
+				setGridX(res.data.properties.gridX);
+				setGridY(res.data.properties.gridY);
+				getGovForecast();
+			}
+		});
+	};
+
+	function getGovForecast() {
+		getServerSidePropGptB(gridX, gridY).then((res) => {
+			if (!gridX && !gridY) {
+				setGovWeatherApi(null);
+			} else {
+				setGovWeatherApi(res.data);
+			}
+		});
+	}
+
+	console.log("gov forecast: ", govWeatherApi);
+
 
 	function getForecast() {
 		getServerSidePropF(latitude, longitude).then((res) => {
@@ -50,6 +82,7 @@ export default function Search() {
 	useEffect(() => {
 		if (weatherData) {
 			getForecast();
+			getGovApi();
 		}
 	}
 	, [weatherData]);
