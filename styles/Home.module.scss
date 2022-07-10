@@ -5,6 +5,7 @@
 .searchContainer{
 	.titleDiv{
 		text-align: center;
+		font-family: $fontScourceSansPro;
 	}
 	.formContainer{
 		display: flex;
@@ -15,6 +16,7 @@
 				border-radius: 5px;
 				border: 1px solid #ccc;
 				text-align: center;
+				font-family: $fontScourceSansPro;
 				&:focus{
 					outline: none !important;
 					border: 1px solid $colorTertiary;
@@ -26,7 +28,8 @@
 				padding: 4px;
 				margin-top: 1vh;
 				background-color: $btnPrimary;
-				margin-left: 30%;
+				margin-left: 35%;
+				font-family: $fontScourceSansPro;
 					&:hover{
 						cursor: pointer;
 						background-color: $btnSecondary;
@@ -41,9 +44,11 @@
 .weatherContainer {
 	.missingCity{
 		text-align: center;
+		font-family: $fontScourceSansPro;
 	}
 	.cardHeader{
 		text-align: center;
+		font-family: $fontScourceSansPro;
 	}
 	.card{
 		background-color: $colorSecondary;
@@ -51,29 +56,32 @@
 		border-radius: 15px;
 		.cardBody{
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-around;
 			.cardLeft{
-				justify-content: flex-start;
-				.leftSpan{
-					display: inline-block;
-					vertical-align: top;
-					margin-top: 5%;
+				background-color: $colorTertiary;
+				border-radius: 15px;
+				.cardImage{
+					margin-top: 10px;
+				}
+				.leftDiv{
+					display: flex;
+					flex-direction: row;
+					border-radius: 15px;
+					padding: 0 4px 0 4px;
+					background-color: $colorPrimary;
 					.description{
-
-					}
-					.city{
-	
+						font-family: $fontScourceSansPro;
+						margin: auto;
+						text-transform: capitalize;
 					}
 				}
 			}
 			.cardRight{
-				justify-content: flex-end;
-				margin-top: 2%;
 				.temp{
-
-				}
-				.lowHigh{
-
+					font-family: $fontScourceSansPro;
+					font-weight: 700;
+					color: $colorTertiary;
+					font-size: xx-large;
 				}
 			}
 

@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
+import moment from "moment";
 
 export default function WeatherCard({ props }) {
 
@@ -22,6 +23,10 @@ export default function WeatherCard({ props }) {
   const city = props ? props.name : null;
   const timezone = props ? props.timezone : null;
 	const icon = props ? props.weather[0].icon : null;
+	const day = props ? moment.unix(props.dt).format("dddd MMM Do") : null;
+
+	// function using moment which shows live time of day
+
 
 	console.log(icon)
 
@@ -34,33 +39,27 @@ export default function WeatherCard({ props }) {
       ) : (
 				<div>
           <div className={styles.cardHeader}>
-            <h2>Current</h2>
+            <h2>{day}</h2>
           </div>
         <div className={styles.card}>
           <div className={styles.cardBody}>
             <div className={styles.cardLeft}>
               <Image
+							className={styles.cardImage}
 							src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-							width={100}
-							height={100}
+							width={80}
+							height={80}
+							style={{ marginTop: "8px" }}
 							/>
-							<span className={styles.leftSpan}>
+							<div className={styles.leftDiv}>
 								<div className={styles.description}>
 									<p>{clouds}</p>
 								</div>
-								<div className={styles.city}>
-									<p>{city}</p>
-								</div>
-							</span>
+							</div>
             </div>
             <div className={styles.cardRight}>
               <div className={styles.temp}>
-                <p>{temp}</p>
-              </div>
-              <div className={styles.lowHigh}>
-                <p>
-                  Low: {tempLow} / High: {tempHigh}
-                </p>
+								<p>{temp}</p>
               </div>
             </div>
           </div>
