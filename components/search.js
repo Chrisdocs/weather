@@ -20,7 +20,7 @@ export default function Search() {
 	const [govData, setGovData] = useState(null);
 	const [gridX, setGridX] = useState(null);
 	const [gridY, setGridY] = useState(null);
-	const [govWeatherApi, setGovWeatherApi] = useState(null);
+	const [govForecastData, setGovForecastData] = useState(null);
 
 	// sets the API data state on function call
   function getWeather() {
@@ -53,9 +53,9 @@ export default function Search() {
 	function getGovForecast() {
 		getServerSidePropGptB(gridX, gridY).then((res) => {
 			if (!gridX && !gridY) {
-				setGovWeatherApi(null);
+				setGovForecastData(null);
 			} else {
-				setGovWeatherApi(res.data);
+				setGovForecastData(res.data);
 			}
 		});
 	}
@@ -96,6 +96,12 @@ export default function Search() {
 		return forecastData;
 	}
 
+	function getGovForecastData() {
+		return govForecastData;
+	}
+
+	console.log("gov weather data: ", govForecastData);
+
   return (
     <div className={styles.searchContainer}>
         <div className={styles.titleDiv}>
@@ -115,7 +121,7 @@ export default function Search() {
 						</button>
 				</form>
       </div>
-      <WeatherCard props={getWeatherData()} />
+      <WeatherCard props={getWeatherData()} propsB={getGovForecastData()}/>
 			{/* <ForecastCard props={getForecastData()} /> */}
 			<Graph props={getForecastData()} />
     </div>

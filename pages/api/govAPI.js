@@ -5,7 +5,6 @@ export async function getServerSidePropG(lat, lon){
 
 	const response = await fetch(`https://api.weather.gov/points/${LAT},${LON}`)
 	const data = await response.json();
-	console.log(data);
 
 	if (!data) {
 		return {
