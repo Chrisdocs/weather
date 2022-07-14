@@ -41,50 +41,68 @@
 
 /* Weather card component */
 
-.weatherContainer {
-	.missingCity{
+.weatherDiv {
+	.weatherP{
 		text-align: center;
 		font-family: $fontScourceSansPro;
-	}
-	.cardHeader{
-		text-align: center;
-		font-family: $fontScourceSansPro;
-	}
-	.card{
-		background-color: $colorSecondary;
-		padding: 3%;
-		border-radius: 15px;
-		.cardBody{
-			display: flex;
-			justify-content: space-around;
-			.cardLeft{
-				background-color: $colorTertiary;
-				border-radius: 15px;
-				.cardImage{
-					margin-top: 10px;
-				}
-				.leftDiv{
-					display: flex;
-					flex-direction: row;
-					border-radius: 15px;
-					padding: 0 4px 0 4px;
-					background-color: $colorPrimary;
-					.description{
-						font-family: $fontScourceSansPro;
-						margin: auto;
-						text-transform: capitalize;
-					}
-				}
-			}
-			.cardRight{
-				.temp{
-					font-family: $fontScourceSansPro;
-					font-weight: 700;
-					color: $colorTertiary;
-					font-size: xx-large;
-				}
-			}
-
+		color: $colorTertiary;
+		span{
+			font-size: 1.25rem;
+			font-weight: bold;
+		}
+		//temp
+		.hot{
+			color: red;
+		}
+		.warm{
+			color: orange;
+		}
+		.mild{
+			color: lightgreen;
+		}
+		.cold{
+			color: skyblue;
+		}
+		//humidity
+		.dry{
+			color: sandybrown
+		}
+		.normal{
+			color: rgb(106, 124, 173)
+			;
+		}
+		.wet{
+			color: rgb(56, 114, 145)
+			;
+		}
+		//wind
+		.calm{
+			color: rgb(157, 189, 206)
+			;
+		}
+		.light{
+			color: rgb(109, 139, 155)
+			;
+		}
+		.moderate{
+			color: rgb(133, 119, 164)
+			;
+		}
+		.strong{
+			color: rgb(137, 67, 102)
+			;
+		}
+		.stronger{
+			color: rgb(157, 35, 84)
+			;
+		}
+		.violent{
+			color: rgb(196, 55, 55)
+			;
+		}
+		.dangerous{
+			color: rgb(178, 34, 34)
+			;
 		}
 	}
 }
