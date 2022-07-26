@@ -17,7 +17,7 @@ export default function Search() {
   const [city, setCity] = useState("");
 	const [latitude, setLatitude] = useState(null);
 	const [longitude, setLongitude] = useState(null);
-	const [govData, setGovData] = useState(null);
+	// const [govData, setGovData] = useState(null);
 	// const [gridX, setGridX] = useState(null);
 	// const [gridY, setGridY] = useState(null);
 	// const [govForecastData, setGovForecastData] = useState(null);
@@ -27,6 +27,8 @@ export default function Search() {
     getServerSidePropW(city).then((res) => {
       if (!city) {
         setWeatherData(null);
+				setLatitude(null);
+				setLongitude(null);
       } else {
         setWeatherData(res.data);
 				setLatitude(res.data.coord.lat);
@@ -87,6 +89,9 @@ export default function Search() {
 	}
 	, [weatherData]);
 
+	console.log("weatherData: ", weatherData);
+	console.log(weatherData ? weatherData.message : "no weatherData");
+
   // passes data onto a child component
   function getWeatherData() {
     return weatherData;
@@ -105,7 +110,7 @@ export default function Search() {
   return (
     <div className={styles.searchContainer}>
         <div className={styles.titleDiv}>
-          <h2>Weather App</h2>
+          <h2>WeatherGet</h2>
         </div>
       <div className={styles.formContainer}>
 				<form onSubmit={onSearchSubmit} className={styles.form}>

@@ -4,7 +4,10 @@ import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import moment from "moment";
 
-export default function WeatherCard({ props, propsB }) {
+export default function WeatherCard({ props }) {
+	const [noCity, setNoCity] = useState(false);
+
+console.log("!!!!!!! ", noCity);
 
   // set props to variables
   const clouds = props ? props.weather[0].description : null;
@@ -27,14 +30,14 @@ export default function WeatherCard({ props, propsB }) {
 	const day = props ? moment.unix(props.dt).format("dddd MMM Do") : null;
 
 // loop through the propsB.periods array and return objects which match the day of the week
-	const monday = propsB ? propsB.properties.periods.filter(period => period.name === "Monday") : null;
-	const tuesday = propsB ? propsB.properties.periods.filter(period => period.name === "Tuesday") : null;
-	const wednesday = propsB ? propsB.properties.periods.filter(period => period.name === "Wednesday") : null;
-	const thursday = propsB ? propsB.properties.periods.filter(period => period.name === "Thursday") : null;
-	const friday = propsB ? propsB.properties.periods.filter(period => period.name === "Friday") : null;
-	const saturday = propsB ? propsB.properties.periods.filter(period => period.name === "Saturday") : null;
-	const sunday = propsB ? propsB.properties.periods.filter(period => period.name === "Sunday") : null;
-	const today = propsB ? propsB.properties.periods.filter(period => period.name === "Today") : null;
+	// const monday = propsB ? propsB.properties.periods.filter(period => period.name === "Monday") : null;
+	// const tuesday = propsB ? propsB.properties.periods.filter(period => period.name === "Tuesday") : null;
+	// const wednesday = propsB ? propsB.properties.periods.filter(period => period.name === "Wednesday") : null;
+	// const thursday = propsB ? propsB.properties.periods.filter(period => period.name === "Thursday") : null;
+	// const friday = propsB ? propsB.properties.periods.filter(period => period.name === "Friday") : null;
+	// const saturday = propsB ? propsB.properties.periods.filter(period => period.name === "Saturday") : null;
+	// const sunday = propsB ? propsB.properties.periods.filter(period => period.name === "Sunday") : null;
+	// const today = propsB ? propsB.properties.periods.filter(period => period.name === "Today") : null;
 
 	// degrees symbol
 	const deg = String.fromCharCode(176);
@@ -138,9 +141,9 @@ export default function WeatherCard({ props, propsB }) {
 
   return (
     <div className={styles.weatherContainer}>
-      {props === null ? (
+      {props === null || noCity === true ? (
         <div>
-					<p className={styles.missingCity}>please enter a valid city</p>
+					<p className={styles.missingCity}>Please enter a valid city!</p>
 					</div>
       ) : (
 				<div className={styles.weatherDiv}>

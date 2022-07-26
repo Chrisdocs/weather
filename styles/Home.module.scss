@@ -1,159 +1,164 @@
-@import 'mixins';
+@import "mixins";
+
+/* Header */
 
 /* Search component */
 
-.searchContainer{
-	.titleDiv{
-		text-align: center;
-		font-family: $fontScourceSansPro;
-	}
-	.formContainer{
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-		.form{
-			.input{
-				border-radius: 5px;
-				border: 1px solid #ccc;
-				text-align: center;
-				font-family: $fontScourceSansPro;
-				&:focus{
-					outline: none !important;
-					border: 1px solid $colorTertiary;
-					box-shadow: 0 0 5px $colorTertiary
-				}
-			}
-			.submitBtn{
-				border-style: none;
-				padding: 4px;
-				margin-top: 1vh;
-				background-color: $btnPrimary;
-				margin-left: 35%;
-				font-family: $fontScourceSansPro;
-					&:hover{
-						cursor: pointer;
-						background-color: $btnSecondary;
-					}
-			}
-		}
-	}
+.searchContainer {
+  .titleDiv {
+    text-align: center;
+    font-family: $fontScourceSansPro;
+    color: $colorTertiary;
+  }
+  .formContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .form {
+      .input {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        text-align: center;
+        font-family: $fontScourceSansPro;
+        &:focus {
+          outline: none !important;
+          border: 1px solid $colorTertiary;
+          box-shadow: 0 0 5px $colorTertiary;
+        }
+      }
+      .submitBtn {
+        border-style: none;
+        padding: 4px;
+        margin-top: 1vh;
+        background-color: $btnPrimary;
+        margin-left: 33%;
+        font-family: $fontScourceSansPro;
+        &:hover {
+          cursor: pointer;
+          background-color: $btnSecondary;
+        }
+      }
+    }
+  }
 }
 
 /* Weather card component */
 
+.weatherContainer {
+  .missingCity {
+    text-align: center;
+    font-family: $fontScourceSansPro;
+    color: $colorTertiary;
+  }
+}
+
 .weatherDiv {
-	.weatherP{
-		text-align: center;
-		font-family: $fontScourceSansPro;
-		color: $colorTertiary;
-		span{
-			font-size: 1.25rem;
-			font-weight: bold;
-		}
-		//temp
-		.hot{
-			color: red;
-		}
-		.warm{
-			color: orange;
-		}
-		.mild{
-			color: lightgreen;
-		}
-		.cold{
-			color: skyblue;
-		}
-		//humidity
-		.dry{
-			color: sandybrown
-		}
-		.normal{
-			color: rgb(106, 124, 173)
-			;
-		}
-		.wet{
-			color: rgb(56, 114, 145)
-			;
-		}
-		//wind
-		.calm{
-			color: rgb(157, 189, 206)
-			;
-		}
-		.light{
-			color: rgb(109, 139, 155)
-			;
-		}
-		.moderate{
-			color: rgb(133, 119, 164)
-			;
-		}
-		.strong{
-			color: rgb(137, 67, 102)
-			;
-		}
-		.stronger{
-			color: rgb(157, 35, 84)
-			;
-		}
-		.violent{
-			color: rgb(196, 55, 55)
-			;
-		}
-		.dangerous{
-			color: rgb(178, 34, 34)
-			;
-		}
-	}
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  .weatherP {
+    text-align: center;
+    font-family: $fontScourceSansPro;
+    color: $colorTertiary;
+		max-width: 90vw;
+    span {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    //temp
+    .hot {
+      color: red;
+    }
+    .warm {
+      color: orange;
+    }
+    .mild {
+      color: lightgreen;
+    }
+    .cold {
+      color: skyblue;
+    }
+    //humidity
+    .dry {
+      color: sandybrown;
+    }
+    .normal {
+      color: rgb(106, 124, 173);
+    }
+    .wet {
+      color: rgb(56, 114, 145);
+    }
+    //wind
+    .calm {
+      color: rgb(157, 189, 206);
+    }
+    .light {
+      color: rgb(109, 139, 155);
+    }
+    .moderate {
+      color: rgb(133, 119, 164);
+    }
+    .strong {
+      color: rgb(137, 67, 102);
+    }
+    .stronger {
+      color: rgb(157, 35, 84);
+    }
+    .violent {
+      color: rgb(196, 55, 55);
+    }
+    .dangerous {
+      color: rgb(178, 34, 34);
+    }
+  }
 }
 
 /* Forecast Card Component */
 
-.forecastContainer{
-	.dt{
-	}
-	.day{
-		.zero{
-
-		}
-		.three{
-
-		}
-		.six{
-
-		}
-		.nine{
-
-		}
-		.twelve{
-
-		}
-		.fifteen{
-
-		}
-		.eighteen{
-
-		}
-		.twentyOne{
-
-		}
-	}
+.forecastContainer {
+  .dt {
+  }
+  .day {
+    .zero {
+    }
+    .three {
+    }
+    .six {
+    }
+    .nine {
+    }
+    .twelve {
+    }
+    .fifteen {
+    }
+    .eighteen {
+    }
+    .twentyOne {
+    }
+  }
 }
 
 /* 24 hour graph */
 
-.graphContainer{
-	.graphLabel{
-		text-align: center;
-		font-family: $fontScourceSansPro;
-	}
-	.graph{
-		width: 100%;
-		height: 100%;
-		background-color: $colorPrimary;
-		border-radius: 15px;
-		.graphLine{
-			padding: 10px;
-		}
-		}
-	}
+.graphContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .graphLabel {
+    text-align: center;
+    font-family: $fontScourceSansPro;
+    color: $colorTertiary;
+    font-size: larger;
+    font-weight: bold;
+  }
+  .graph {
+    max-width: 90vw;
+		min-width: 90vw;
+    background-color: $colorPrimary;
+    border-radius: 15px;
+    .graphLine {
+      padding: 10px;
+      max-height: 50vh;
+    }
+  }
+}
