@@ -18,9 +18,9 @@ export default function Search() {
 	const [latitude, setLatitude] = useState(null);
 	const [longitude, setLongitude] = useState(null);
 	const [govData, setGovData] = useState(null);
-	const [gridX, setGridX] = useState(null);
-	const [gridY, setGridY] = useState(null);
-	const [govForecastData, setGovForecastData] = useState(null);
+	// const [gridX, setGridX] = useState(null);
+	// const [gridY, setGridY] = useState(null);
+	// const [govForecastData, setGovForecastData] = useState(null);
 
 	// sets the API data state on function call
   function getWeather() {
@@ -36,29 +36,29 @@ export default function Search() {
   }
 
 	// get the API data from the weather.gov "points" endpoint using the latitude and longitude data from the open weather api
-	async function getGovApi() {
-		await getServerSidePropG(latitude, longitude).then((res) => {
-			if (!latitude && !longitude) {
-				setGovData(null);
-			} else {
-				setGovData(res.data);
-				setGridX(res.data.properties.gridX);
-				setGridY(res.data.properties.gridY);
-				getGovForecast();
-			}
-		});
-	};
+	// async function getGovApi() {
+	// 	await getServerSidePropG(latitude, longitude).then((res) => {
+	// 		if (!latitude && !longitude) {
+	// 			setGovData(null);
+	// 		} else {
+	// 			setGovData(res.data);
+	// 			setGridX(res.data.properties.gridX);
+	// 			setGridY(res.data.properties.gridY);
+	// 			getGovForecast();
+	// 		}
+	// 	});
+	// };
 
 	// uses the gridX and gridY data from the weather.gov "points" endpoint to get the weather.gov "forecast" endpoint data
-	function getGovForecast() {
-		getServerSidePropGptB(gridX, gridY).then((res) => {
-			if (!gridX && !gridY) {
-				setGovForecastData(null);
-			} else {
-				setGovForecastData(res.data);
-			}
-		});
-	}
+	// function getGovForecast() {
+	// 	getServerSidePropGptB(gridX, gridY).then((res) => {
+	// 		if (!gridX && !gridY) {
+	// 			setGovForecastData(null);
+	// 		} else {
+	// 			setGovForecastData(res.data);
+	// 		}
+	// 	});
+	// }
 
 	// uses longitude and latitude data from the open weather api to get the forecast data from the forecast API
 	function getForecast() {
@@ -82,7 +82,7 @@ export default function Search() {
 	useEffect(() => {
 		if (weatherData) {
 			getForecast();
-			getGovApi();
+			// getGovApi();
 		}
 	}
 	, [weatherData]);
@@ -96,11 +96,11 @@ export default function Search() {
 		return forecastData;
 	}
 
-	function getGovForecastData() {
-		return govForecastData;
-	}
+	// function getGovForecastData() {
+	// 	return govForecastData;
+	// }
 
-	console.log("gov weather data: ", govForecastData);
+	// console.log("gov weather data: ", govForecastData);
 
   return (
     <div className={styles.searchContainer}>
@@ -121,7 +121,7 @@ export default function Search() {
 						</button>
 				</form>
       </div>
-      <WeatherCard props={getWeatherData()} propsB={getGovForecastData()}/>
+      <WeatherCard props={getWeatherData()}/>
 			{/* <ForecastCard props={getForecastData()} /> */}
 			<Graph props={getForecastData()} />
     </div>
