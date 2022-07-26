@@ -5,9 +5,6 @@ import styles from "../styles/Home.module.scss";
 import moment from "moment";
 
 export default function WeatherCard({ props }) {
-	const [noCity, setNoCity] = useState(false);
-
-console.log("!!!!!!! ", noCity);
 
   // set props to variables
   const clouds = props ? props.weather[0].description : null;
@@ -141,7 +138,7 @@ console.log("!!!!!!! ", noCity);
 
   return (
     <div className={styles.weatherContainer}>
-      {props === null || noCity === true ? (
+      {props === null ? (
         <div>
 					<p className={styles.missingCity}>Please enter a valid city!</p>
 					</div>
