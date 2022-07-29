@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import moment from "moment";
 import { Line } from "react-chartjs-2";
@@ -22,7 +21,7 @@ export default function Graph({ props }) {
     }
   });
 
-  console.log(arr);
+  // console.log(arr);
 
   // call function after the arr state is set
   useEffect(() => {

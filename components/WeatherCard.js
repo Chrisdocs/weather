@@ -1,6 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import moment from "moment";
 
@@ -25,16 +23,6 @@ export default function WeatherCard({ props }) {
   const timezone = props ? props.timezone : null;
 	const icon = props ? props.weather[0].icon : null;
 	const day = props ? moment.unix(props.dt).format("dddd MMM Do") : null;
-
-// loop through the propsB.periods array and return objects which match the day of the week
-	// const monday = propsB ? propsB.properties.periods.filter(period => period.name === "Monday") : null;
-	// const tuesday = propsB ? propsB.properties.periods.filter(period => period.name === "Tuesday") : null;
-	// const wednesday = propsB ? propsB.properties.periods.filter(period => period.name === "Wednesday") : null;
-	// const thursday = propsB ? propsB.properties.periods.filter(period => period.name === "Thursday") : null;
-	// const friday = propsB ? propsB.properties.periods.filter(period => period.name === "Friday") : null;
-	// const saturday = propsB ? propsB.properties.periods.filter(period => period.name === "Saturday") : null;
-	// const sunday = propsB ? propsB.properties.periods.filter(period => period.name === "Sunday") : null;
-	// const today = propsB ? propsB.properties.periods.filter(period => period.name === "Today") : null;
 
 	// degrees symbol
 	const deg = String.fromCharCode(176);

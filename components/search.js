@@ -1,14 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 import { getServerSidePropW } from "../pages/api/WeatherAPI";
 import { getServerSidePropF } from "../pages/api/ForecastAPI";
 import WeatherCard from "./WeatherCard";
-import ForecastCard from "./ForecastCard";
 import Graph from "./Graph";
-import { getServerSidePropG } from "../pages/api/govAPI";
-import { getServerSidePropGptB } from "../pages/api/govAPI";
 
 export default function Search() {
   // get data from API
@@ -17,10 +13,6 @@ export default function Search() {
   const [city, setCity] = useState("");
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-  // const [govData, setGovData] = useState(null);
-  // const [gridX, setGridX] = useState(null);
-  // const [gridY, setGridY] = useState(null);
-  // const [govForecastData, setGovForecastData] = useState(null);
 
 	// error handling for no city found
   let noCity;
@@ -33,7 +25,7 @@ export default function Search() {
     }
   }
 
-  console.log("is there no valid city?", noCity);
+  // console.log("is there no valid city?", noCity);
 
   // sets the API data state on function call
   async function getWeather() {
@@ -49,31 +41,6 @@ export default function Search() {
       }
     });
   }
-
-  // get the API data from the weather.gov "points" endpoint using the latitude and longitude data from the open weather api
-  // async function getGovApi() {
-  // 	await getServerSidePropG(latitude, longitude).then((res) => {
-  // 		if (!latitude && !longitude) {
-  // 			setGovData(null);
-  // 		} else {
-  // 			setGovData(res.data);
-  // 			setGridX(res.data.properties.gridX);
-  // 			setGridY(res.data.properties.gridY);
-  // 			getGovForecast();
-  // 		}
-  // 	});
-  // };
-
-  // uses the gridX and gridY data from the weather.gov "points" endpoint to get the weather.gov "forecast" endpoint data
-  // function getGovForecast() {
-  // 	getServerSidePropGptB(gridX, gridY).then((res) => {
-  // 		if (!gridX && !gridY) {
-  // 			setGovForecastData(null);
-  // 		} else {
-  // 			setGovForecastData(res.data);
-  // 		}
-  // 	});
-  // }
 
   // uses longitude and latitude data from the open weather api to get the forecast data from the forecast API
   function getForecast() {
@@ -111,12 +78,6 @@ export default function Search() {
   function getForecastData() {
     return forecastData;
   }
-
-  // function getGovForecastData() {
-  // 	return govForecastData;
-  // }
-
-  // console.log("gov weather data: ", govForecastData);
 
   return (
     <div className={styles.searchContainer}>

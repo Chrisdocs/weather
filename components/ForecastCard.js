@@ -20,7 +20,7 @@ export default function ForecastCard({ props }) {
     }
   });
 
-  console.log(arr);
+  // console.log(arr);
 
   // call function after the arr state is set
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function ForecastCard({ props }) {
     }
   }, [arr]);
 
-	console.log(dt);
+	// console.log(dt);
 
 	if (isData === true) {
 		return (
