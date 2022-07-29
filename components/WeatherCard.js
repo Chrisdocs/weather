@@ -133,7 +133,7 @@ export default function WeatherCard({ props }) {
       ) : (
 				<div className={styles.weatherDiv}>
 					<p className={styles.weatherP}>
-						{setGreeting(timeHour)}! Today is <span>{day}</span> in {city}, {country}. The <span className={setClassNameTemp(temp)}>temperature</span> is <span className={setClassNameTemp(temp)}>{temp}{deg}F</span>, but it feels like <span className={setClassNameTemp(temp)}>{feelsLike}{deg}</span> with {clouds}. <span className={setClassNameHumidity(humidity)}>Humidity</span> is hovering around <span className={setClassNameHumidity(humidity)}>{humidity}%</span> with <span className={setClassNameWind(wind)}>winds</span> blowing {setWindDirection(windDeg)} at <span className={setClassNameWind(wind)}>{wind} mph</span>.
+						{setGreeting(timeHour)}! Today is <span className={styles.day}>{day}</span> in {city}, {country}. The <span className={setClassNameTemp(temp)}>temperature</span> is <span className={setClassNameTemp(temp)}>{temp}{deg}F</span>, but it feels like <span className={setClassNameTemp(temp)}>{feelsLike}{deg}</span> with {clouds === 'clear sky' ? <span>clear skies</span> : clouds === 'few clouds' ? <span>a few clouds</span> : <span>{clouds}</span>}. <span className={setClassNameHumidity(humidity)}>Humidity</span> is hovering around <span className={setClassNameHumidity(humidity)}>{humidity}%</span> with <span className={setClassNameWind(wind)}>winds</span> blowing {setWindDirection(windDeg)} at <span className={setClassNameWind(wind)}>{wind} mph</span>.
 					</p>
 				</div>
       )}
