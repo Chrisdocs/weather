@@ -19,7 +19,7 @@ export default function Graph({ props }) {
       const propsArray = props.list;
       setArr(propsArray);
     }
-  });
+  }, [props]);
 
   // console.log(arr);
 

@@ -68,7 +68,7 @@ export default function Search() {
       getForecast();
       // getGovApi();
     }
-  }, [weatherData]);
+  });
 
   // console.log("weatherData: ", weatherData);
   // console.log(weatherData ? weatherData.message : "no weatherData");
