@@ -46,8 +46,8 @@ export default function Search() {
   }
 
   // uses longitude and latitude data from the open weather api to get the forecast data from the forecast API
-  function getForecast() {
-    getServerSidePropF(latitude, longitude).then((res) => {
+  async function getForecast() {
+    await getServerSidePropF(latitude, longitude).then((res) => {
       if (!city) {
         setForecastData(null);
       } else {
