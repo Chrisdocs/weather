@@ -1,9 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import styles from "../styles/Home.module.scss";
-import { getServerSideProp } from "./api/weatherAPI";
 import Search from "../components/search";
 
 export default function Home() {

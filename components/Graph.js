@@ -26,7 +26,7 @@ export default function Graph({ props }) {
   // call function after the arr state is set
   useEffect(() => {
     if (arr && arr.length > 0) {
-      console.log("arr is set");
+      // console.log("arr is set");
       setIsData(true);
       setDt(moment.unix(arr[0].dt).format("dddd"));
 			setGraphDataSet([
@@ -51,7 +51,7 @@ export default function Graph({ props }) {
 					moment.unix(arr[8].dt).format("h a"),
 				]);
     } else if (arr && arr.length === 0) {
-      console.log("no data");
+      // console.log("no data");
       setIsData(false);
     }
   }, [arr]);
@@ -117,7 +117,7 @@ export default function Graph({ props }) {
 		},
 	}
 
-	console.log(graphDataSet);
+	// console.log(graphDataSet);
 
   if (isData === true) {
     return (
