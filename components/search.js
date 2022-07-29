@@ -34,12 +34,15 @@ export default function Search() {
         setWeatherData(null);
         setLatitude(null);
         setLongitude(null);
-      } else if (city && noCity !== true) {
+      } else if (city) {
         setWeatherData(res.data);
         setLatitude(res.data.coord.lat);
         setLongitude(res.data.coord.lon);
       }
-    });
+    }).catch((err) => {
+			console.log(err);
+		}
+		);
   }
 
   // uses longitude and latitude data from the open weather api to get the forecast data from the forecast API
@@ -99,7 +102,7 @@ export default function Search() {
         </form>
       </div>
       {noCity === true ? (
-        <div>Please enter a valid city!</div>
+        <div className={styles.citySpelling}>Please enter a valid city!</div>
       ) : (
         <div>
           <WeatherCard props={getWeatherData()} />
