@@ -21,6 +21,8 @@ export default function Search() {
   // const [gridX, setGridX] = useState(null);
   // const [gridY, setGridY] = useState(null);
   // const [govForecastData, setGovForecastData] = useState(null);
+
+	// error handling for no city found
   let noCity;
 
   if (weatherData) {
