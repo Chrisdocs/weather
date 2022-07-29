@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from "../styles/Home.module.scss";
-import { getServerSidePropW } from "../pages/api/weatherAPI";
+import { getServerSidePropW } from "../pages/api/WeatherAPI";
 import { getServerSidePropF } from "../pages/api/ForecastAPI";
 import WeatherCard from "./WeatherCard";
 import Graph from "./Graph";
