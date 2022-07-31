@@ -6,25 +6,35 @@ import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Chart } from 'react-chartjs-2'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { getServerSideProp } from "../pages/api/ForecastAPI";
 
-export default function Graph({ props }) {
-  const [arr, setArr] = useState([]);
+
+export default function Graph({props}) {
   const [isData, setIsData] = useState(false);
   const [dt, setDt] = useState(null);
 	const [graphDataSet, setGraphDataSet] = useState();
 	const [graphLabels, setGraphLabels] = useState();
+	const [forecastData, setForecastData] = useState(null);
+	const [arr, setArr] = useState([]);
 
-  useEffect(() => {
-    if (props) {
-      const propsArray = props.list;
-      setArr(propsArray);
-    }
-  }, [props]);
+	console.log("props is graph", props);
+	// console.log("props 0 ", props[0],"props 1 ", props[1],"props 2 ", props[2]);
 
-  // console.log(arr);
+	useEffect(() => {
+		if (props[0] !== null) {
+			getServerSideProp(props[1], props[2]).then((res) => {
+				console.log(res.data.list)
+				setArr(res.data.list);
+			})
+		} else {
+			return;
+		}
+	}, [props]);
+
+	console.log(arr)
 
   // call function after the arr state is set
-  useEffect(() => {
+	useEffect(() => {
     if (arr && arr.length > 0) {
       // console.log("arr is set");
       setIsData(true);
@@ -54,7 +64,8 @@ export default function Graph({ props }) {
       // console.log("no data");
       setIsData(false);
     }
-  }, [arr]);
+	}, [arr]);
+
 	
   const graphData = {
 		labels: graphLabels,

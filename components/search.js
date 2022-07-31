@@ -46,15 +46,7 @@ export default function Search() {
   }
 
   // uses longitude and latitude data from the open weather api to get the forecast data from the forecast API
-  async function getForecast() {
-    await getServerSidePropF(latitude, longitude).then((res) => {
-      if (!city) {
-        setForecastData(null);
-      } else {
-        setForecastData(res.data);
-      }
-    });
-  }
+
 
   // allows use of enter key for submitting their query, calls getWeather()
   const onSearchSubmit = async (e) => {
@@ -63,12 +55,7 @@ export default function Search() {
   };
 
   // call the getForecast() functions after the weatherData state is set
-  useEffect(() => {
-    if (weatherData) {
-      getForecast();
-      // getGovApi();
-    }
-  });
+
 
   // console.log("weatherData: ", weatherData);
   // console.log(weatherData ? weatherData.message : "no weatherData");
@@ -107,7 +94,7 @@ export default function Search() {
         <div>
           <WeatherCard props={getWeatherData()} />
           {/* <ForecastCard props={getForecastData()} /> */}
-          <Graph props={getForecastData()} />
+          <Graph props={[getWeatherData(), latitude, longitude]} />
         </div>
       )}
     </div>
