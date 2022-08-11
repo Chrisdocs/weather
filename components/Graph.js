@@ -9,62 +9,42 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { getServerSideProp } from "../pages/api/ForecastAPI";
 
 
-export default function Graph({props}) {
+export default function Graph({ data, slug }) {
   const [isData, setIsData] = useState(false);
   const [dt, setDt] = useState(null);
 	const [graphDataSet, setGraphDataSet] = useState();
 	const [graphLabels, setGraphLabels] = useState();
-	const [forecastData, setForecastData] = useState(null);
-	const [arr, setArr] = useState([]);
-
-	console.log("props is graph", props);
-	// console.log("props 0 ", props[0],"props 1 ", props[1],"props 2 ", props[2]);
 
 	useEffect(() => {
-		if (props[0] !== null) {
-			getServerSideProp(props[1], props[2]).then((res) => {
-				console.log(res.data.list)
-				setArr(res.data.list);
-			})
-		} else {
-			return;
-		}
-	}, [props]);
-
-	console.log(arr)
-
-  // call function after the arr state is set
-	useEffect(() => {
-    if (arr && arr.length > 0) {
-      // console.log("arr is set");
+    if (data.hourly && data.hourly.length > 0) {
       setIsData(true);
-      setDt(moment.unix(arr[0].dt).format("dddd"));
+      setDt(moment.unix(data.hourly[0].dt).format("dddd"));
 			setGraphDataSet([
-				arr[0].main.temp,
-				arr[1].main.temp,
-				arr[2].main.temp,
-				arr[3].main.temp,
-				arr[4].main.temp,
-				arr[5].main.temp,
-				arr[6].main.temp,
-				arr[7].main.temp,
-				arr[8].main.temp,]);
+				//TODO: create loop for data array.map truncate the function.
+				data.hourly[0].temp,
+				data.hourly[1].temp,
+				data.hourly[2].temp,
+				data.hourly[3].temp,
+				data.hourly[4].temp,
+				data.hourly[5].temp,
+				data.hourly[6].temp,
+				data.hourly[7].temp,
+				data.hourly[8].temp,]);
 				setGraphLabels([
-					moment.unix(arr[0].dt).format("h a"),
-					moment.unix(arr[1].dt).format("h a"),
-					moment.unix(arr[2].dt).format("h a"),
-					moment.unix(arr[3].dt).format("h a"),
-					moment.unix(arr[4].dt).format("h a"),
-					moment.unix(arr[5].dt).format("h a"),
-					moment.unix(arr[6].dt).format("h a"),
-					moment.unix(arr[7].dt).format("h a"),
-					moment.unix(arr[8].dt).format("h a"),
+					moment.unix(data.hourly[0].dt).format("h a"),
+					moment.unix(data.hourly[1].dt).format("h a"),
+					moment.unix(data.hourly[2].dt).format("h a"),
+					moment.unix(data.hourly[3].dt).format("h a"),
+					moment.unix(data.hourly[4].dt).format("h a"),
+					moment.unix(data.hourly[5].dt).format("h a"),
+					moment.unix(data.hourly[6].dt).format("h a"),
+					moment.unix(data.hourly[7].dt).format("h a"),
+					moment.unix(data.hourly[8].dt).format("h a"),
 				]);
-    } else if (arr && arr.length === 0) {
-      // console.log("no data");
+    } else if (data.hourly && data.hourly.length === 0) {
       setIsData(false);
     }
-	}, [arr]);
+	}, [data.hourly]);
 
 	
   const graphData = {
@@ -78,6 +58,8 @@ export default function Graph({props}) {
     ],
   };
 
+
+	// TODO: export options from own file
 	const options = {
 		layout: {
 			padding: {

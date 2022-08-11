@@ -2,30 +2,22 @@ import React from "react";
 import styles from "../styles/Home.module.scss";
 import moment from "moment";
 
-export default function WeatherCard({ props }) {
+export default function WeatherCard({ data, slug }) {
 
-  // set props to variables
-  const clouds = props ? props.weather[0].description : null;
-  const wind = props ? props.wind.speed : null;
-  const windDeg = props ? props.wind.deg : null;
-  const windDirection = props ? props.wind.deg : null;
-  const temp = props ? props.main.temp : null;
-  const feelsLike = props ? props.main.feels_like : null;
-  const sunrise = props ? props.sys.sunrise : null;
-  const tempLow = props ? props.main.temp_min : null;
-  const tempHigh = props ? props.main.temp_max : null;
-  const sunset = props ? props.sys.sunset : null;
-  const humidity = props ? props.main.humidity : null;
-  const pressure = props ? props.main.pressure : null;
-  const country = props ? props.sys.country : null;
-  const city = props ? props.name : null;
-	const state = props ? props.sys.country : null;
-  const timezone = props ? props.timezone : null;
-	const icon = props ? props.weather[0].icon : null;
-	const day = props ? moment.unix(props.dt).format("dddd MMM Do") : null;
+  // set data to variables
+  const clouds = data ? data.current.weather.description : null;
+  const wind = data ? data.current.wind_speed : null;
+  const windDeg = data ? data.current.wind_deg : null;
+  const temp = data ? data.current.temp : null;
+  const feelsLike = data ? data.current.feels_like : null;
+  const humidity = data ? data.current.humidity : null;
+  const timezone = data ? data.current.timezone : null;
+	const day = data ? moment.unix(data.current.dt).format("dddd MMM Do") : null;
 
 	// degrees symbol
 	const deg = String.fromCharCode(176);
+
+	//TODO: move class functions to own export file
 
 	// function which sets a new className based on the temperature
 	function setClassNameTemp(temp) {
@@ -126,14 +118,14 @@ export default function WeatherCard({ props }) {
 
   return (
     <div className={styles.weatherContainer}>
-      {props === null ? (
+      {data === null ? (
         <div>
 					<p className={styles.missingCity}>Please enter a valid city!</p>
 					</div>
       ) : (
 				<div className={styles.weatherDiv}>
 					<p className={styles.weatherP}>
-						{setGreeting(timeHour)}! Today is <span className={styles.day}>{day}</span> in {city}, {country}. The <span className={setClassNameTemp(temp)}>temperature</span> is <span className={setClassNameTemp(temp)}>{temp}{deg}F</span>, but it feels like <span className={setClassNameTemp(temp)}>{feelsLike}{deg}</span> with {clouds === 'clear sky' ? <span>clear skies</span> : clouds === 'few clouds' ? <span>a few clouds</span> : <span>{clouds}</span>}. <span className={setClassNameHumidity(humidity)}>Humidity</span> is hovering around <span className={setClassNameHumidity(humidity)}>{humidity}%</span> with <span className={setClassNameWind(wind)}>winds</span> blowing {setWindDirection(windDeg)} at <span className={setClassNameWind(wind)}>{wind} mph</span>.
+						{setGreeting(timeHour)}! Today is <span className={styles.day}>{day}</span>. The <span className={setClassNameTemp(temp)}>temperature</span> is <span className={setClassNameTemp(temp)}>{temp}{deg}F</span>, but it feels like <span className={setClassNameTemp(temp)}>{feelsLike}{deg}</span> with {clouds === 'clear sky' ? <span>clear skies</span> : clouds === 'few clouds' ? <span>a few clouds</span> : <span>{clouds}</span>}. <span className={setClassNameHumidity(humidity)}>Humidity</span> is hovering around <span className={setClassNameHumidity(humidity)}>{humidity}%</span> with <span className={setClassNameWind(wind)}>winds</span> blowing {setWindDirection(windDeg)} at <span className={setClassNameWind(wind)}>{wind} mph</span>.
 					</p>
 				</div>
       )}

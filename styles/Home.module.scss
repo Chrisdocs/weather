@@ -5,47 +5,51 @@
 /* Search component */
 
 .searchContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
   .titleDiv {
     text-align: center;
     font-family: $fontScourceSansPro;
     color: $colorTertiary;
   }
   .formContainer {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    .form {
-      .input {
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        text-align: center;
-        font-family: $fontScourceSansPro;
-        &:focus {
-          outline: none !important;
-          border: 1px solid $colorTertiary;
-          box-shadow: 0 0 5px $colorTertiary;
-        }
-      }
-      .submitBtn {
-        border-style: none;
-        padding: 4px;
-        margin-top: 1vh;
-        background-color: $btnPrimary;
-        margin-left: 33%;
-        font-family: $fontScourceSansPro;
-        &:hover {
-          cursor: pointer;
-          background-color: $btnSecondary;
-        }
+
+    .input {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+      font-family: $fontScourceSansPro;
+      &:focus {
+        outline: none !important;
+        border: 1px solid $colorTertiary;
+        box-shadow: 0 0 5px $colorTertiary;
       }
     }
+		.citiesContainer {
+			padding-left: 0;
+			border: 2px solid $colorTertiary;
+			.citiesList {
+				text-align: center;
+				list-style-type: none;
+				a {
+					text-decoration: none;
+					font-family: $fontScourceSansPro;
+					color: $colorTertiary;
+					&:hover {
+						background-color: $colorTertiary;
+						color: $colorPrimary;
+					}
+				}
+			}
+		}
   }
 }
 
-.citySpelling{
-	text-align: center;
-	font-family: $fontScourceSansPro;
-	color: red;
+.citySpelling {
+  text-align: center;
+  font-family: $fontScourceSansPro;
+  color: red;
 }
 
 /* Weather card component */
@@ -59,14 +63,14 @@
 }
 
 .weatherDiv {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   .weatherP {
     text-align: center;
     font-family: $fontScourceSansPro;
     color: $colorTertiary;
-		max-width: 90vw;
+    max-width: 90vw;
     span {
       font-size: 1.25rem;
       font-weight: bold;
@@ -159,7 +163,7 @@
   }
   .graph {
     max-width: 90vw;
-		min-width: 90vw;
+    min-width: 90vw;
     background-color: $colorPrimary;
     border-radius: 15px;
     .graphLine {
