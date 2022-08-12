@@ -53,18 +53,18 @@
 
 /* Weather card component */
 
-.weatherContainer {
-  .missingCity {
-    text-align: center;
-    font-family: $fontScourceSansPro;
-    color: $colorTertiary;
-  }
+.weatherP{
+	text-align: center;
+	font-family: $fontScourceSansPro;
+	color: $colorTertiary;
+	font-size: larger;
 }
 
 .dataCardContainer{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-top: 25px;
   .dataContainer {
     min-width: 190px;
     height: 95px;
@@ -72,6 +72,7 @@
     border: 5px solid #2ec4b6;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+		margin: 3px;
     .dataTitle {
       font-family: $fontScourceSansPro;
       font-weight: 400;
@@ -133,9 +134,6 @@
       color: #807979;
 			margin-top: 1vh;
     }
-		.clouds {
-			font-size: 28px;
-		}
   }
 }
 

@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.scss";
 import moment from "moment";
 
 export default function DataCard({ data, slug }) {
-  const clouds = data ? data.current.weather[0].description : null;
+  const clouds = data ? data.current.clouds : null;
   const wind = data ? data.current.wind_speed : null;
   const windDeg = data ? data.current.wind_deg : null;
   const temp = data ? data.current.temp : null;
@@ -115,16 +115,28 @@ export default function DataCard({ data, slug }) {
   }
 
   return (
-    <div>
+    <div className={styles.dataCardWrapper}>
+      <p className={styles.weatherP}>
+        {setGreeting(timeHour)}! Today is{" "}
+        <span className={styles.day}>{day}</span>
+      </p>
       {data ? (
         <div className={styles.dataCardContainer}>
           <div className={styles.dataContainer}>
             <p className={styles.dataTitle}>Temperature</p>
-            <p className={setClassNameTemp(temp)}>{temp}</p>
+            <p className={setClassNameTemp(temp)}>{temp}°</p>
+          </div>
+          <div className={styles.dataContainer}>
+            <p className={styles.dataTitle}>Feels Like</p>
+            <p className={setClassNameTemp(feelsLike)}>{feelsLike}°</p>
+          </div>
+          <div className={styles.dataContainer}>
+            <p className={styles.dataTitle}>Humidity</p>
+            <p className={setClassNameHumidity(humidity)}>{humidity}%</p>
           </div>
           <div className={styles.dataContainer}>
             <p className={styles.dataTitle}>Cloud Cover</p>
-            <p className={styles.clouds}>{clouds}</p>
+            <p>{clouds}%</p>
           </div>
           <div className={styles.dataContainer}>
             <p className={styles.dataTitle}>Wind</p>
@@ -133,14 +145,6 @@ export default function DataCard({ data, slug }) {
           <div className={styles.dataContainer}>
             <p className={styles.dataTitle}>Wind Direction</p>
             <p className={styles.dataP}>{setWindDirection(windDeg)}</p>
-          </div>
-          <div className={styles.dataContainer}>
-            <p className={styles.dataTitle}>Feels Like</p>
-            <p className={setClassNameTemp(feelsLike)}>{feelsLike}</p>
-          </div>
-          <div className={styles.dataContainer}>
-            <p className={styles.dataTitle}>Humidity</p>
-            <p className={setClassNameHumidity(humidity)}>{humidity}%</p>
           </div>
         </div>
       ) : (
