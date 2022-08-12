@@ -144,33 +144,6 @@
 		}
 	}
 }
-
-
-/* Forecast Card Component */
-
-.forecastContainer {
-  .dt {
-  }
-  .day {
-    .zero {
-    }
-    .three {
-    }
-    .six {
-    }
-    .nine {
-    }
-    .twelve {
-    }
-    .fifteen {
-    }
-    .eighteen {
-    }
-    .twentyOne {
-    }
-  }
-}
-
 /* 24 hour graph */
 
 .graphContainer {
@@ -187,7 +160,8 @@
   .graph {
     max-width: 90vw;
     min-width: 90vw;
-    background-color: $colorPrimary;
+    background-color: $globalBackgroundColorLight;
+		border: 5px solid $colorTertiary;
     border-radius: 15px;
     .graphLine {
       padding: 10px;

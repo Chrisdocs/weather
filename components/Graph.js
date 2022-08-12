@@ -94,7 +94,7 @@ export default function Graph({ data, slug }) {
 				borderWidth: 2,
 				borderColor: "rgba(203, 243, 240, 1)",
 				fill: "start",
-				backgroundColor: "rgba(203, 243, 240, 1)",
+				backgroundColor: "rgba(153, 243, 240, 1)",
 			},
 			point: {
 				radius: 0,

@@ -45,7 +45,7 @@ export default function SearchBox() {
         <h2>WeatherGet</h2>
       </div>
 			<div className={styles.formContainer}>
-				<input type="text" value={query} onChange={onChange} className={styles.input}/>
+				<input type="text" value={query} placeholder="Search for a city" onChange={onChange} className={styles.input}/>
 				{query.length > 3 && (
 					<ul className={styles.citiesContainer}>
 						{results.length > 0 ? (
