@@ -5,16 +5,15 @@
 /* Search component */
 
 .searchContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .titleDiv {
     text-align: center;
     font-family: $fontScourceSansPro;
     color: $colorTertiary;
   }
   .formContainer {
-
     .input {
       border-radius: 5px;
       border: 1px solid #ccc;
@@ -26,23 +25,23 @@
         box-shadow: 0 0 5px $colorTertiary;
       }
     }
-		.citiesContainer {
-			padding-left: 0;
-			border: 2px solid $colorTertiary;
-			.citiesList {
-				text-align: center;
-				list-style-type: none;
-				a {
-					text-decoration: none;
-					font-family: $fontScourceSansPro;
-					color: $colorTertiary;
-					&:hover {
-						background-color: $colorTertiary;
-						color: $colorPrimary;
-					}
-				}
-			}
-		}
+    .citiesContainer {
+      padding-left: 0;
+      border: 2px solid $colorTertiary;
+      .citiesList {
+        text-align: center;
+        list-style-type: none;
+        a {
+          text-decoration: none;
+          font-family: $fontScourceSansPro;
+          color: $colorTertiary;
+          &:hover {
+            background-color: $colorTertiary;
+            color: $colorPrimary;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -54,71 +53,100 @@
 
 /* Weather card component */
 
-.weatherContainer {
-  .missingCity {
-    text-align: center;
-    font-family: $fontScourceSansPro;
-    color: $colorTertiary;
-  }
-}
+// .weatherContainer {
+//   .missingCity {
+//     text-align: center;
+//     font-family: $fontScourceSansPro;
+//     color: $colorTertiary;
+//   }
+// }
 
-.weatherDiv {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  .weatherP {
-    text-align: center;
-    font-family: $fontScourceSansPro;
-    color: $colorTertiary;
-    max-width: 90vw;
-    span {
-      font-size: 1.25rem;
-      font-weight: bold;
+// .weatherDiv {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   .weatherP {
+//     text-align: center;
+//     font-family: $fontScourceSansPro;
+//     color: $colorTertiary;
+//     max-width: 90vw;
+//     span {
+//       font-size: 1.25rem;
+//       font-weight: bold;
+//     }
+//     //temp
+//     .hot {
+//       color: red;
+//     }
+//     .warm {
+//       color: orange;
+//     }
+//     .mild {
+//       color: lightgreen;
+//     }
+//     .cold {
+//       color: skyblue;
+//     }
+//     //humidity
+//     .dry {
+//       color: sandybrown;
+//     }
+//     .normal {
+//       color: rgb(106, 124, 173);
+//     }
+//     .wet {
+//       color: rgb(56, 114, 145);
+//     }
+//     //wind
+//     .calm {
+//       color: rgb(157, 189, 206);
+//     }
+//     .light {
+//       color: rgb(109, 139, 155);
+//     }
+//     .moderate {
+//       color: rgb(133, 119, 164);
+//     }
+//     .strong {
+//       color: rgb(137, 67, 102);
+//     }
+//     .stronger {
+//       color: rgb(157, 35, 84);
+//     }
+//     .violent {
+//       color: rgb(196, 55, 55);
+//     }
+//     .dangerous {
+//       color: rgb(178, 34, 34);
+//     }
+//   }
+// }
+
+.weatherContainer {
+	display: flex;
+	flex-wrap: wrap;
+  .dataContainer {
+    width: 190px;
+    height: 95px;
+    background: #cbf3f0;
+    border: 5px solid #2ec4b6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    .dataTitle {
+      font-family: $fontScourceSansPro;
+      font-weight: 400;
+      font-size: 16px;
+      text-align: center;
+      color: #807979;
+			margin: 0;
     }
-    //temp
-    .hot {
-      color: red;
-    }
-    .warm {
-      color: orange;
-    }
-    .mild {
-      color: lightgreen;
-    }
-    .cold {
-      color: skyblue;
-    }
-    //humidity
-    .dry {
-      color: sandybrown;
-    }
-    .normal {
-      color: rgb(106, 124, 173);
-    }
-    .wet {
-      color: rgb(56, 114, 145);
-    }
-    //wind
-    .calm {
-      color: rgb(157, 189, 206);
-    }
-    .light {
-      color: rgb(109, 139, 155);
-    }
-    .moderate {
-      color: rgb(133, 119, 164);
-    }
-    .strong {
-      color: rgb(137, 67, 102);
-    }
-    .stronger {
-      color: rgb(157, 35, 84);
-    }
-    .violent {
-      color: rgb(196, 55, 55);
-    }
-    .dangerous {
-      color: rgb(178, 34, 34);
+    .dataP {
+      font-family: $fontScourceSansPro;
+      font-weight: 400;
+      font-size: 36px;
+      text-align: center;
+      color: #807979;
+			margin-top: 1vh;
     }
   }
 }
