@@ -6,8 +6,6 @@ import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto'
 import { Chart } from 'react-chartjs-2'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { getServerSideProp } from "../pages/api/ForecastAPI";
-
 
 export default function Graph({ data, slug }) {
   const [isData, setIsData] = useState(false);

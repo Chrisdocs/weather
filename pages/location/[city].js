@@ -2,7 +2,6 @@ import React from "react";
 import cities from "../../lib/city.list.json";
 import SearchBox from "../../components/search";
 import WeatherCard from "../../components/WeatherCard";
-import Graph from "../../components/Graph";
 
 export async function getServerSideProps(context) {
 	const city = getCity(context.params.city);
@@ -63,7 +62,6 @@ export default function City({ slug, data }) {
     <div>
 			<SearchBox />
 			<WeatherCard data={data} slug={slug}/>
-			<Graph data={data} slug={slug}/>
     </div>
   );
 }

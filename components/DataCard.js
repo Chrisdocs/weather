@@ -2,7 +2,10 @@ import React from "react";
 import styles from "../styles/Home.module.scss";
 import moment from "moment";
 
-export default function DataCard({ data, slug }) {
+export default function DataCard({ data }) {
+
+	console.log("data: ", data)
+
   const clouds = data ? data.current.clouds : null;
   const wind = data ? data.current.wind_speed : null;
   const windDeg = data ? data.current.wind_deg : null;
