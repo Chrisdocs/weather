@@ -199,7 +199,6 @@ export default function GraphTwelve({ data, slug }) {
   if (isData === true) {
     return (
       <div className={styles.graphContainer}>
-        <p className={styles.graphLabel}>12 Hour Weather</p>
         <div className={styles.graph}>
           <Line
             className={styles.graphLine}

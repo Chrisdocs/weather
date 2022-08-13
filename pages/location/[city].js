@@ -30,6 +30,7 @@ export async function getServerSideProps(context) {
     props: {
       slug: slug,
 			data: data,
+			city: city,
     },
   };
 }
@@ -56,12 +57,12 @@ const getCity = param => {
 	}
 }
 
-export default function City({ slug, data }) {
-	console.log(data);
+export default function City({ slug, data, city }) {
+
   return (
     <div>
 			<SearchBox />
-			<WeatherCard data={data} slug={slug}/>
+			<WeatherCard data={data} slug={slug} city={city}/>
     </div>
   );
 }

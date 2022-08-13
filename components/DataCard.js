@@ -2,9 +2,10 @@ import React from "react";
 import styles from "../styles/Home.module.scss";
 import moment from "moment";
 
-export default function DataCard({ data }) {
+export default function DataCard({ data, city }) {
 
 	console.log("data: ", data)
+	console.log("city: ", city)
 
   const clouds = data ? data.current.clouds : null;
   const wind = data ? data.current.wind_speed : null;
@@ -13,6 +14,7 @@ export default function DataCard({ data }) {
   const feelsLike = data ? data.current.feels_like : null;
   const humidity = data ? data.current.humidity : null;
   const timezone = data ? data.current.timezone : null;
+	const cityName = data ? city.name : null;
   const day = data ? moment.unix(data.current.dt).format("dddd MMM Do") : null;
 
   // degrees symbol
@@ -121,7 +123,7 @@ export default function DataCard({ data }) {
     <div className={styles.dataCardWrapper}>
       <p className={styles.weatherP}>
         {setGreeting(timeHour)}! Today is{" "}
-        <span className={styles.day}>{day}</span>
+        <span className={styles.day}>{day}</span> in {cityName}.
       </p>
       {data ? (
         <div className={styles.dataCardContainer}>

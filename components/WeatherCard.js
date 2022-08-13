@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.scss";
 import DataCard from "./DataCard";
 import GraphSwitchHandler from "./Graph";
 
-export default function WeatherCard({ data }) {
+export default function WeatherCard({ data, city }) {
 
   return (
     <div className={styles.weatherContainer}>
@@ -13,7 +13,7 @@ export default function WeatherCard({ data }) {
 					</div>
       ) : (
 				<div className={styles.weatherDiv}>
-					<DataCard data={data} />
+					<DataCard data={data} city={city}/>
 					<GraphSwitchHandler data={data} />
 				</div>
       )}
