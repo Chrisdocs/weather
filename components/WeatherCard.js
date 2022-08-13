@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Home.module.scss";
 import DataCard from "./DataCard";
-import Graph from "./Graph";
+import GraphSwitchHandler from "./Graph";
 
 export default function WeatherCard({ data }) {
 
@@ -14,7 +14,7 @@ export default function WeatherCard({ data }) {
       ) : (
 				<div className={styles.weatherDiv}>
 					<DataCard data={data} />
-					<Graph data={data}/>
+					<GraphSwitchHandler data={data} />
 				</div>
       )}
     </div>
