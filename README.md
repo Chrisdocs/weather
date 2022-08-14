@@ -11,6 +11,8 @@ Thanks to
 
 for supplying the API!
 
+and Matt The Dev's Youtube video which taught me a lot!
+
 ---
 ## About
 
@@ -33,9 +35,9 @@ some of the text which is generated uses ternary operators to manipulate the way
 There are a couple features I would like to add in the future.
 
 - 5 day forecast.
-- additional graphs displaying further 24 hour and multi day forecast information.
-- explore cases in which cities have the same name - possibly allow searching by zip code.
-- cookie based location "use my location" feature.
+- Cookie based or Geo based location "use my location" feature.
+- Rain Chance information.
+- using an API for the city list instead of a large json file.
 
 ---
 
