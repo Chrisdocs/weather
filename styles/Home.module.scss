@@ -1,5 +1,9 @@
 @import "mixins";
 
+.container {
+	max-width: 100vw;
+}
+
 /* Header */
 
 /* Search component */
@@ -43,6 +47,22 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 450px) {
+	.input {
+		width: 80vw;
+		height: 5vh;
+		font-size: large;
+		font-weight: bold;
+	}
+	.citiesContainer{
+		.citiesList{
+			a{
+				font-size: xx-large;
+			}
+		}
+	}
 }
 
 .citySpelling {

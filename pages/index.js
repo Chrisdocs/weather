@@ -10,14 +10,12 @@ export default function Home() {
       <Head>
         <title className={styles.headerTitle}>Weather App</title>
         <meta name="Weather App" content="Simple web app for getting the weather from a specified city" />
-        <link rel="icon" href="/favicon.ico" />
+				<meta name="viewport" content="width=1000 initial-scale=1.0 maximum-scale=1" />
       </Head>
 
       <main className={styles.main}>
 				<Search />
       </main>
-
-      <footer className={styles.footer}></footer>
     </div>
   );
 }

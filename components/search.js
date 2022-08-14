@@ -41,6 +41,7 @@ export default function SearchBox() {
 
   return (
     <div className={styles.searchContainer}>
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       <div className={styles.titleDiv}>
         <h2>WeatherGet</h2>
       </div>
